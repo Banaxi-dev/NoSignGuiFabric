@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "id": "nosignguimod",
+  "version": "${version}",
+  "name": "NoSignGUiMod",
+  "description": "A Mod That Disables The SignGui",
+  "icon": "assets/nosignguimod/icon.png",
+  "authors": ["Banaxi"],
+  "contact": {},
+  "license": "GPL-3.0",
+  "environment": "*",
+  "entrypoints": {
+    "fabric-datagen": [
+      "de.banaxi.nosignguimod.client.NosignguimodDataGenerator"
+    ],
+    "client": [
+      "de.banaxi.nosignguimod.client.NosignguimodClient"
+    ],
+    "main": [
+      "de.banaxi.nosignguimod.Nosignguimod"
+    ]
+  },
+  "mixins": [
+    "nosignguimod.mixins.json",
+    {
+      "config": "nosignguimod.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  },
+  "custom": {
+    "modmenu": {
+      "icon": "assets/nosignguimod/icon.png"
+    }
+  }
+}
