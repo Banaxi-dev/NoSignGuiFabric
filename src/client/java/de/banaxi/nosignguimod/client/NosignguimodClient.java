@@ -19,7 +19,7 @@ public class NosignguimodClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
-        // Command "/nosigngui"
+
         ClientCommandRegistrationCallback.EVENT.register((dispatcher, registryAccess) -> dispatcher.register(
                 ClientCommandManager.literal("nosigngui").executes(ctx -> {
                     toggleGui();
@@ -27,15 +27,15 @@ public class NosignguimodClient implements ClientModInitializer {
                 })
         ));
 
-        // Keybinding registrieren (default: X)
+
         toggleGuiKey = KeyBindingHelper.registerKeyBinding(new KeyBinding(
-                "key.nosignguimod.toggle",               // translation key, für Controls-Optionen
+                "key.nosignguimod.toggle",
                 InputUtil.Type.KEYSYM,
-                GLFW.GLFW_KEY_V,                         // Default-Taste: X
-                "category.nosignguimod"                  // Kategorie in den Controls
+                GLFW.GLFW_KEY_V,
+                "category.nosignguimod"
         ));
 
-        // Tick-Event für Keybind und GUI schließen
+
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             while (toggleGuiKey.wasPressed()) {
                 toggleGui();
